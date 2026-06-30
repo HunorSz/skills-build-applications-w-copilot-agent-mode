@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { MONGO_URI, connectToDatabase } from './config/database.js';
 import activitiesRouter from './routes/activities.js';
 import leaderboardRouter from './routes/leaderboard.js';
@@ -15,6 +16,7 @@ const apiBaseUrl = codespaceName
   : 'http://localhost:8000';
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/users', usersRouter);
 app.use('/api/teams', teamsRouter);

@@ -1,16 +1,33 @@
-# React + Vite
+# Octofit Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + Vite presentation tier for the Octofit multi-tier application.
 
-Currently, two official plugins are available:
+## Environment variable setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+By default, the frontend calls `/api/[component]/` and Vite proxies requests to
+`http://localhost:8000` during development.
 
-## React Compiler
+If you need a custom API origin (for example a deployed backend), define
+`VITE_API_BASE_URL` in `.env.local`:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+VITE_API_BASE_URL=https://your-api-host.example.com/api
+```
 
-## Expanding the ESLint configuration
+When set, the frontend calls:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+/api/[component]/
+```
+
+When not set, the app uses the development proxy:
+
+```text
+http://localhost:8000/api/[component]/
+```
+
+## Run
+
+```bash
+npm run dev
+```
