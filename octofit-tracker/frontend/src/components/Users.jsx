@@ -1,7 +1,9 @@
 import ResourceSection from './ResourceSection.jsx';
 
 function Users() {
-  return <ResourceSection title="Users" resourcePath="users" />;
+  const endpointPath = '/api/users/';
+
+  return <ResourceSection title="Users" resourcePath="users" endpointPath={endpointPath} />;
 }
 
 export default Users;

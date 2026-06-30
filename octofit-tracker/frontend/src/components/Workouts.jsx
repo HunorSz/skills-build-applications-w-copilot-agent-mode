@@ -1,7 +1,15 @@
 import ResourceSection from './ResourceSection.jsx';
 
 function Workouts() {
-  return <ResourceSection title="Workouts" resourcePath="workouts" />;
+  const endpointPath = '/api/workouts/';
+
+  return (
+    <ResourceSection
+      title="Workouts"
+      resourcePath="workouts"
+      endpointPath={endpointPath}
+    />
+  );
 }
 
 export default Workouts;

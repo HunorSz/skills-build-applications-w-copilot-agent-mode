@@ -151,7 +151,7 @@ function formatDate(value) {
   return parsed.toLocaleDateString();
 }
 
-function ResourceSection({ title, resourcePath }) {
+function ResourceSection({ title, resourcePath, endpointPath }) {
   const [items, setItems] = useState([]);
   const [pagination, setPagination] = useState(null);
   const [error, setError] = useState('');
@@ -167,7 +167,7 @@ function ResourceSection({ title, resourcePath }) {
       setError('');
 
       try {
-        const response = await fetch(buildApiUrl(resourcePath));
+        const response = await fetch(buildApiUrl(endpointPath || resourcePath));
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
         }

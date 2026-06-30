@@ -1,7 +1,9 @@
 import ResourceSection from './ResourceSection.jsx';
 
 function Teams() {
-  return <ResourceSection title="Teams" resourcePath="teams" />;
+  const endpointPath = '/api/teams/';
+
+  return <ResourceSection title="Teams" resourcePath="teams" endpointPath={endpointPath} />;
 }
 
 export default Teams;
