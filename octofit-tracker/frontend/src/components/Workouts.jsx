@@ -2,7 +2,7 @@ import ResourceSection from './ResourceSection.jsx';
 
 function Workouts() {
   const endpointCandidates = [
-    `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.github.dev/api/workouts/`,
+    `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`,
     '/api/workouts/',
   ];
   const endpointPath = endpointCandidates[1];

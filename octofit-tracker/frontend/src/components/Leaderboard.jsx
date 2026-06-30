@@ -2,7 +2,7 @@ import ResourceSection from './ResourceSection.jsx';
 
 function Leaderboard() {
   const endpointCandidates = [
-    `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.github.dev/api/leaderboard/`,
+    `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`,
     '/api/leaderboard/',
   ];
   const endpointPath = endpointCandidates[1];
