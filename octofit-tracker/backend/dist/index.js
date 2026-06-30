@@ -6,39 +6,33 @@ import leaderboardRouter from './routes/leaderboard.js';
 import teamsRouter from './routes/teams.js';
 import usersRouter from './routes/users.js';
 import workoutsRouter from './routes/workouts.js';
-
 const app = express();
-
 const PORT = 8000;
-
 app.use(express.json());
-
 app.use('/api/users', usersRouter);
 app.use('/api/teams', teamsRouter);
 app.use('/api/activities', activitiesRouter);
 app.use('/api/leaderboard', leaderboardRouter);
 app.use('/api/workouts', workoutsRouter);
-
 app.get('/api/health', (_req, res) => {
-  res.json({
-    status: 'ok',
-    apiBaseUrl,
-    backendPort: PORT,
-    mongoUri: MONGO_URI,
-  });
-});
-
-async function startServer() {
-  try {
-    await connectToDatabase();
-    app.listen(PORT, () => {
-      console.log(`Backend API running on ${apiBaseUrl}`);
-      console.log(`MongoDB connection: ${MONGO_URI}`);
+    res.json({
+        status: 'ok',
+        apiBaseUrl,
+        backendPort: PORT,
+        mongoUri: MONGO_URI,
     });
-  } catch (error) {
-    console.error('Failed to start backend:', error);
-    process.exit(1);
-  }
+});
+async function startServer() {
+    try {
+        await connectToDatabase();
+        app.listen(PORT, () => {
+            console.log(`Backend API running on ${apiBaseUrl}`);
+            console.log(`MongoDB connection: ${MONGO_URI}`);
+        });
+    }
+    catch (error) {
+        console.error('Failed to start backend:', error);
+        process.exit(1);
+    }
 }
-
 void startServer();
